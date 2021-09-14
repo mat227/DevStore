@@ -289,8 +289,6 @@ const ContainerConteudo = styled.div`
     display: flex;
     flex-direction: row;
   
-    align-items: center;
-  
     font-family: "Roboto";
     color: #615858;
     font-weight: 500;
@@ -305,8 +303,12 @@ const ContainerConteudo = styled.div`
     align-items: flex-end;
     border-radius: 5px;
     margin-left: 1em;
+    
     outline: none;
     font-family: "Roboto";
+  }
+  .txt1{
+margin-top: 10px;
   }
   .txt-item3 textarea {
     width: 41.4em;

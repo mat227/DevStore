@@ -30,8 +30,8 @@ export default class Api {
     }
 
    
-    async alteraProduto(id, nomeProduto,categoria,precoDe,precoPor,avaliacao,descricao,estoque,imagem ) {
-        let r = await api.put(`/produto/` + id, {nomeProduto,categoria,precoDe,precoPor,avaliacao,descricao,estoque,imagem});
+    async alteraProduto(id, nmproduto,categoria,precoDe,precoPor,avaliacao,descricao,estoque,imagem ) {
+        let r = await api.put(`/produto/` + id, {nmproduto,categoria,precoDe,precoPor,avaliacao,descricao,estoque,imagem});
         return r.data;
     }
 }

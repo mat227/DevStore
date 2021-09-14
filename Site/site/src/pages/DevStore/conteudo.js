@@ -178,7 +178,7 @@ export default function Conteudo() {
             <div class="txt-produto">
               <div class="barra-produto"></div>
               <div class="oie">
-                {idAlterando == 0 ? "Novo Produto" : "Alterando Produto"}
+                {idAlterando == 0 ? "Novo Produto" : `Alterando Produto ${nmProduto}`}
               </div>
             </div>
 
@@ -248,7 +248,7 @@ export default function Conteudo() {
                   />
                 </div>
                 <div class="txt-item3">
-                  Descrição:
+                  <div className="txt1">Descrição:</div>
                   <textarea
                     type="text"
                     value={descricao}

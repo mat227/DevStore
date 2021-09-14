@@ -24,41 +24,49 @@ export default function Conteudo() {
   const [idAlterando, setIdAlterando] = useState(0);
   const loading = useRef(null);
 
-  const inserirProduto = async () => {
-      if(idAlterando === 0){
-    let r = await api.cadastrarProduto(
-      nmProduto,
-      categoria,
-      precoDe,
-      precoPor,
-      avaliacao,
-      descricao,
-      estoque,
-      imagem
-    
-    );
-    toast.dark("Produto cadastrado com sucesso");
+  async function inserirProduto() {
+    loading.current.complete();
 
-    }else{
-        let r =await api.alteraProduto(
-            idAlterando,
-            nmProduto,
-            categoria,
-            precoDe,
-            precoPor,
-            avaliacao,
-            descricao,
-            estoque,
-            imagem
-        )
-        toast.dark("Produto alterado com sucesso");
+    if (idAlterando == 0) {
+      let r = await api.cadastrarProduto(
+        nmProduto,
+        categoria,
+        precoDe,
+        precoPor,
+        avaliacao,
+        descricao,
+        estoque,
+        imagem
+      );
 
+      if (r.erro) {
+        toast.error(r.erro);
+      } else {
+        toast.success("✔️ Produto inserido com sucesso!");
+      }
+    } else {
+      let r = await api.alteraProduto(
+        idAlterando,
+        nmProduto,
+        categoria,
+        precoDe,
+        precoPor,
+        avaliacao,
+        descricao,
+        estoque,
+        imagem
+      );
+
+      if (r.erro) {
+        toast.error(r.erro);
+      } else {
+        toast.success("✔️ Produto alterado com sucesso!");
+      }
     }
+
     listar();
     limparVariavel();
-
-
-  };
+  }
 
   async function listar() {
     loading.current.complete();
@@ -77,9 +85,9 @@ export default function Conteudo() {
           onClick: async () => {
             let a = await api.removerProduto(id);
             if (a.erro) {
-              toast.dark({ erro: a.toString() });
+              toast.erro({ erro: a.toString() });
             } else {
-              toast.dark("Produto removido");
+              toast.success("✔️Produto removido");
             }
             listar();
           },
@@ -89,7 +97,6 @@ export default function Conteudo() {
         },
       ],
     });
-   
   }
 
   async function editar(item) {
@@ -102,20 +109,20 @@ export default function Conteudo() {
     setEstoque(item.qtd_estoque);
     setImagem(item.img_produto);
     setIdAlterando(item.id_produto);
+    console.log(item);
   }
 
   const limparVariavel = () => {
     setIdAlterando(0);
-    setNmProduto('');
-    setCategoria('');
-    setPrecoDe('')
-    setPrecoPor('');
-    setAvaliacao('');
-    setDescricao('');
-    setEstoque('');
-    setImagem('');
-
-}
+    setNmProduto("");
+    setCategoria("");
+    setPrecoDe("");
+    setPrecoPor("");
+    setAvaliacao("");
+    setDescricao("");
+    setEstoque("");
+    setImagem("");
+  };
 
   useEffect(() => {
     listar();
@@ -128,11 +135,9 @@ export default function Conteudo() {
       <div class="lateralEsquerda">
         <header class="header-lateralEsquerda">
           <div class="img-livro">
-            
             <img src="/assets/imagens/logo.svg" alt="" />
           </div>
           <div class="DevStore">
-            
             <span>Dev</span> School
           </div>
         </header>
@@ -159,11 +164,9 @@ export default function Conteudo() {
           </div>
           <div class="botoes1">
             <button>
-              
               <img src="/assets/imagens/atualizar.svg" alt="" />
             </button>
             <button>
-              
               <img src="/assets/imagens/log-out.svg" alt="" />
             </button>
           </div>
@@ -175,8 +178,8 @@ export default function Conteudo() {
             <div class="txt-produto">
               <div class="barra-produto"></div>
               <div class="oie">
-                   {idAlterando == 0 ? "Novo Produto" : "Alterando Produto"}
-             </div>
+                {idAlterando == 0 ? "Novo Produto" : "Alterando Produto"}
+              </div>
             </div>
 
             <div class="box-inputs">
@@ -190,7 +193,7 @@ export default function Conteudo() {
                   />
                 </div>
                 <div class="input-item">
-                  Cartegoria:
+                Categoria:
                   <input
                     type="text"
                     value={categoria}
@@ -254,7 +257,7 @@ export default function Conteudo() {
                 </div>
               </div>
 
-              <button onClick={inserirProduto}>      
+              <button onClick={inserirProduto}>
                 {idAlterando == 0 ? "Cadastrar" : "Alterar"}
               </button>
             </div>
@@ -280,26 +283,37 @@ export default function Conteudo() {
                 </tr>
               </thead>
               <tbody>
-                {produto.map((item) => (
-                  <tr>
-                    <td><img src={item.img_produto} alt="" style={{height:"30px",width:"30px"}}/></td>
+                {produto.map((item, i) => (
+                  <tr className={i % 2 == 0 ? "Linha-alterada" : ""}>
+                    <td>
+                      <img
+                        src={item.img_produto}
+                        alt=""
+                        style={{ height: "30px", width: "30px" }}
+                      />
+                    </td>
+
                     <td> {item.id_produto} </td>
-                    <td> {item.nm_produto} </td>
+                    <td title={item.nm_produto}>
+                      <td>
+                        
+                        {item.nm_produto != null && item.nm_produto.length >= 25
+                          ? item.nm_produto.substr(0, 25) + "..."
+                          : item.nm_produto}
+                      </td>
+                    </td>
                     <td> {item.ds_categoria} </td>
                     <td> {item.vl_preco_por} </td>
                     <td> {item.qtd_estoque} </td>
 
-                    <td>
-                      
+                    <td class="espaco">
                       <button onClick={() => editar(item)}>
                         <img src="/assets/imagens/edit.svg" alt="" />
                       </button>
                     </td>
 
-                    <td class="imgs-delet-edit">
-                      
+                    <td class="espaco">
                       <button onClick={() => remover(item.id_produto)}>
-                        
                         <img src="/assets/imagens/trash-2.svg" alt="" />
                       </button>
                     </td>

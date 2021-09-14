@@ -349,7 +349,7 @@ const ContainerConteudo = styled.div`
     background-color: #fff;
   
     margin: 2em 0em;
-    padding: 3.4em;
+    padding: 3.4em 2em 3.4em 2em;
   
     box-shadow: 0px 0px 4px 1px rgba(186, 186, 186, 0.25);
   }
@@ -365,6 +365,9 @@ const ContainerConteudo = styled.div`
     color: black;
   }
   
+  .Linha-alterada{
+    background-color: #f5f5f5;
+  }
   .barra-produtos {
     border: 4px solid #119FDC;
   
@@ -415,7 +418,7 @@ const ContainerConteudo = styled.div`
   td {
     text-align: left;
     height: 61.93px;
-    padding: 1em;
+    padding: 0.5em;
     color: #6d6868;
     font-weight: 600;
     font-family: "Roboto";
@@ -440,9 +443,22 @@ const ContainerConteudo = styled.div`
     background-color: #fff;
   }
   
-  .espaco {
-    width: 0.1em;
-  }
+  
+.espaco {
+  width: 0.1em;
+}
+.espaco > button{
+  visibility: hidden;
+}
+
+tr:hover{
+
+  .espaco > button{
+  visibility: visible;
+}
+
+}
+
   
 `
 

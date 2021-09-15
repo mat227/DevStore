@@ -17,92 +17,6 @@ const ContainerConteudo = styled.div`
   }
   
   
-  .lateralEsquerda {
-    display: flex;
-    flex-direction: column;
-  
-    background-color: #2b3031;
-  position: sticky;
-  top:0px;
-  height: 100vh;
-  }
-  
-  .header-lateralEsquerda {
-    display: flex;
-    flex-direction: row;
-  
-    margin: 3em;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .img-livro {
-    border-right: 10px solid transparent;
-  }
-  
-  .DevStore {
-    color: white;
-    font-size: 1.75em;
-    font-family: "Roboto";
-    font-weight: 700;
-  }
-  
-  .devSchool span {
-    color: #10EAEA
-    ;
-    font-family: "Roboto";
-    font-weight: 700;
-  }
-  
-  .blocoPreto {
-    background-color: #262626;
-    width: 21.6em;
-    height: 3.8em;
-  }
-  
-  .lateralEsquerda-gerente {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-  
-    height: 70px;
-  }
-  
-  .lateralEsquerda-gerente img {
-    cursor: pointer;
-  }
-  
-  .lateralEsquerda-gerente div {
-    color: white;
-  
-    font-size: 1.12em;
-    font-weight: 500;
-    font-family: "Roboto";
-  
-    margin-left: 1em;
-  }
-  
-  .lateralEsquerda-produto {
-    display: flex;
-    flex-direction: row;
-  
-    height: 3.43em;
-  
-    background-color: white;
-    border-left: 4px solid #119FDC
-    ;
-  
-    color: #1a1a1a;
-    font-size: 1.2em;
-    font-weight: 500;
-    font-family: "Roboto";
-  
-    align-items: center;
-  
-    padding-left: 4.3em;
-  }
-  
   .box-direira {
     display: flex;
     flex-direction: column;
@@ -113,88 +27,13 @@ const ContainerConteudo = styled.div`
     width: 100%;
   }
   
-  .cabecalho-box-direira {
-    display: flex;
-    flex-direction: row;
-  
-    padding: 1em 2.8em;
-  
-    justify-content: space-between;
-  }
-  
-  .divDentroIMG {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    border: 3px solid white;
-    background-color: #119FDC;
-    color: white;
-  
-    width: 20px;
-    height: 20px;
-  
-    border-radius: 50%;
-  
-    justify-content: center;
-    text-align: center;
-  
-    font-size: 10px;
-    font-weight: bolder;
-  
-    left: 43em;
-    top: 1.5em;
-  }
-  
-  .usuario {
-    display: flex;
-    flex-direction: row;
-  
-    align-items: center;
-  
-    font-family: "Roboto";
-    color: #615858;
-    font-size: 1em;
-    font-weight: 500;
-  }
-  
-  .usuario img {
-    border-radius: 50%;
-    width: 57px;
-    height: 57px;
-  }
-  
-  .usuario div {
-    margin-left: 1em;
-  }
-  
-  .usuario span {
-    font-weight: 700;
-  }
-  
-  .botoes1 {
-    display: flex;
-    flex-direction: row;
-  
-    align-items: center;
-  }
-  
-  .botoes1 button {
-    border: none;
-    background: #119FDC;
-    cursor: pointer;
-  
-    padding: 0.5em;
-    border-radius: 50%;
-  
-    margin: 0px 0.3em;
-  }
-  
   .barra-botao1 {
     border: 1px solid #d9d9d9;
     align-self: center;
   
     width: 95%;
   }
+
   
   .corpo-box-direira {
     display: flex;
@@ -203,6 +42,7 @@ const ContainerConteudo = styled.div`
     background-color: #f5f5f5;
     
     height: 100%;
+    padding: 2em;
   }
   
   .cadastrar-produto {
@@ -226,7 +66,7 @@ const ContainerConteudo = styled.div`
     border-radius: 2.6em;
   }
   
-  .oie {
+  .produto {
     font-size: 2em;
     font-weight: 700;
     font-family: "Roboto";

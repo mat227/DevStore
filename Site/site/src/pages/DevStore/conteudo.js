@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { ContainerConteudo } from "./styled";
 import Api from "../../service/api";
 import LoadingBar from "react-top-loading-bar";
+import Menu from "../../componentes/Menu";
+import Cabecalho from "../../componentes/Cabecalho";
 
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -132,52 +134,17 @@ export default function Conteudo() {
     <ContainerConteudo>
       <ToastContainer />
       <LoadingBar color="red" ref={loading} />
-      <div class="lateralEsquerda">
-        <header class="header-lateralEsquerda">
-          <div class="img-livro">
-            <img src="/assets/imagens/logo.svg" alt="" />
-          </div>
-          <div class="DevStore">
-            <span>Dev</span> School
-          </div>
-        </header>
-        <div class="blocoPreto"></div>
-        <div class="lateralEsquerda-gerente">
-          <div> Gerenciamento </div>
-          <img src="/assets/imagens/setaparabaixo.svg" alt="" />
-        </div>
-        <div class="lateralEsquerda-produto">
-          <div> Produtos </div>
-        </div>
-      </div>
-
+    
+<Menu></Menu>
       <div class="box-direira">
-        <header class="cabecalho-box-direira">
-          <div class="usuario">
-            <div>
-              <img src="/assets/imagens/imgmat.png" alt="" />
-              <div class="divDentroIMG">3</div>
-            </div>
-            <div>
-              Olá, <span>Matheus Oliveira</span>
-            </div>
-          </div>
-          <div class="botoes1">
-            <button>
-              <img src="/assets/imagens/atualizar.svg" alt="" />
-            </button>
-            <button>
-              <img src="/assets/imagens/log-out.svg" alt="" />
-            </button>
-          </div>
-        </header>
-        <div class="barra-botao1"></div>
+      <Cabecalho></Cabecalho>
+      <div class="barra-botao1"></div>
 
         <div class="corpo-box-direira">
           <div class="cadastrar-produto">
             <div class="txt-produto">
               <div class="barra-produto"></div>
-              <div class="oie">
+              <div class="produto">
                 {idAlterando == 0 ? "Novo Produto" : `Alterando Produto ${nmProduto}`}
               </div>
             </div>

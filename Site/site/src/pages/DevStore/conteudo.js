@@ -133,7 +133,7 @@ export default function Conteudo() {
   return (
     <ContainerConteudo>
       <ToastContainer />
-      <LoadingBar color="red" ref={loading} />
+      <LoadingBar color="#2595ff" height='5px' ref={loading} />
     
 <Menu></Menu>
       <div class="box-direira">

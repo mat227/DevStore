@@ -29,7 +29,7 @@ export default function Conteudo() {
   async function inserirProduto() {
     loading.current.complete();
 
-    if (idAlterando == 0) {
+    if (idAlterando === 0) {
       let r = await api.cadastrarProduto(
         nmProduto,
         categoria,
@@ -145,7 +145,7 @@ export default function Conteudo() {
             <div class="txt-produto">
               <div class="barra-produto"></div>
               <div class="produto">
-                {idAlterando == 0 ? "Novo Produto" : `Alterando Produto ${nmProduto}`}
+                {idAlterando === 0 ? "Novo Produto" : `Alterando Produto ${nmProduto}`}
               </div>
             </div>
 
@@ -225,7 +225,7 @@ export default function Conteudo() {
               </div>
 
               <button onClick={inserirProduto}>
-                {idAlterando == 0 ? "Cadastrar" : "Alterar"}
+                {idAlterando === 0 ? "Cadastrar" : "Alterar"}
               </button>
             </div>
           </div>
@@ -251,7 +251,7 @@ export default function Conteudo() {
               </thead>
               <tbody>
                 {produto.map((item, i) => (
-                  <tr className={i % 2 == 0 ? "Linha-alterada" : ""}>
+                  <tr className={i % 2 === 0 ? "Linha-alterada" : ""}>
                     <td>
                       <img
                         src={item.img_produto}
